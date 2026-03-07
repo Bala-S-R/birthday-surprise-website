@@ -1,38 +1,217 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.celebration-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-content {
+    flex: 1;
+    position: relative;
+    z-index: 10;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hero-image-container {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 50%;
+    /* Circle for 3D fee */
+    padding: 10px;
+    box-shadow: 0 15px 35px rgba(255, 64, 129, 0.2);
+    animation: glowing-border 3s infinite alternate ease-in-out;
+    border: 2px solid rgba(255, 64, 129, 0.1);
+}
+
+@keyframes glowing-border {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 64, 129, 0.2), inset 0 0 10px rgba(255, 64, 129, 0.1);
+        border-color: rgba(255, 64, 129, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 35px rgba(255, 64, 129, 0.5), inset 0 0 20px rgba(255, 64, 129, 0.2);
+        border-color: rgba(255, 64, 129, 0.5);
+    }
+}
+
+.romantic-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.intro-card {
+    max-width: 600px;
+    padding: 30px;
+    position: relative;
+    margin-top: -20px;
+    /* Slight overlap for 3D depth */
+    z-index: 20;
+}
+
+.typing-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    white-space: pre-line;
+    /* Preserves newlines in the typed text */
+}
+
+.decorative-icon {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+/* Floating Hearts Background */
+.hearts-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    color: rgba(255, 64, 129, 0.2);
+    font-size: 20px;
+    animation: float-up linear infinite;
+    opacity: 0;
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(110vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-10vh) translateX(50px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.timer-box {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+}
+
+.timer-val {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-romantic);
+}
+
+.running-seconds {
+    display: inline-block;
+    min-width: 1.5ch;
+}
+
+.timer-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.next-step-btn {
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    margin-top: 20px;
+}
+
+/* ─── Responsiveness ─── */
+@media (max-width: 768px) {
+    .hero-image-container {
+        width: 200px;
+        height: 200px;
+    }
+
+    .intro-card {
+        padding: 20px;
+        margin-top: -10px;
+    }
+
+    .typing-text {
+        font-size: 1rem;
+    }
+
+    .timer-box {
+        width: 80px;
+        height: 80px;
+        padding: 10px;
+    }
+
+    .timer-val {
+        font-size: 1.4rem;
+    }
+
+    .timer-label {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image-container {
+        width: 160px;
+        height: 160px;
+    }
+
+    .countdown-grid {
+        gap: 10px;
+    }
+
+    .timer-box {
+        width: calc(50% - 10px);
+        height: 70px;
+    }
 }

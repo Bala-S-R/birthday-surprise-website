@@ -1,0 +1,617 @@
+.gift-page-container {
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* Start from top to ensure title visibility */
+    text-align: center;
+    background: linear-gradient(135deg, #fff5f8 0%, #f3e5f5 100%);
+    position: relative;
+    overflow-y: auto;
+    /* Allow scrolling if content overflows */
+    overflow-x: hidden;
+}
+
+.final-surprise-section {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    gap: 20px;
+}
+
+.wish-result {
+    margin-bottom: 20px;
+}
+
+.cake-blown {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.cake-wrapper.small-cake {
+    width: 350px;
+    /* Adjusted for better visibility */
+    height: 350px;
+}
+
+/* ─── Hearts BG ─── */
+.floating-hearts-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    color: var(--primary-romantic);
+    opacity: 0.3;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.4;
+    }
+
+    80% {
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ─── Ritual Section (Step 3) ─── */
+.wish-subtext {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.wish-card {
+    max-width: 450px;
+    width: 90%;
+    margin: 30px auto;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+}
+
+.wish-card-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px rgba(255, 211, 107, 0.5));
+}
+
+.wish-processing-overlay {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.magical-line {
+    margin-top: 50px;
+    font-size: 1.05rem;
+    color: var(--secondary-romantic);
+    font-weight: 600;
+}
+
+.blow-hint-msg {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+/* ─── Cake & Candles ─── */
+.cake-wrapper {
+    margin: 30px auto;
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cake-wrapper .real-cake-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 50px rgba(255, 64, 129, 0.5));
+    border-radius: 30px;
+    transition: filter 0.5s ease;
+}
+
+.cake-wrapper .real-cake-img:hover {
+    filter: drop-shadow(0 0 70px rgba(255, 64, 129, 0.7));
+}
+
+.candles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.candles-container.hidden {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+}
+
+.candle-overlay {
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+/* Individual candle positioning */
+.candle-overlay.c1 {
+    top: 65px;
+    left: 40%;
+}
+
+.candle-overlay.c2 {
+    top: 55px;
+    left: 45%;
+}
+
+.candle-overlay.c3 {
+    top: 50px;
+    left: 50%;
+}
+
+.candle-overlay.c4 {
+    top: 55px;
+    left: 55%;
+}
+
+.candle-overlay.c5 {
+    top: 65px;
+    left: 60%;
+}
+
+/* ─── Gift Section (Step 1) ─── */
+.gift-card {
+    max-width: 550px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 50px 30px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
+}
+
+.romantic-subline {
+    font-size: 1.15rem;
+    color: var(--secondary-romantic);
+    font-weight: 500;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.gift-hint {
+    font-size: 1rem;
+    color: var(--text-dim);
+    margin-bottom: 30px;
+}
+
+.gift-love-note {
+    margin-top: 30px;
+    font-size: 1rem;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+/* ─── Gift Box ─── */
+.gift-box-container {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 40px auto;
+}
+
+.gift-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gift-box .gift-body {
+    width: 100%;
+    height: 100%;
+    background: var(--primary-romantic);
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 12px 24px rgba(255, 64, 129, 0.2);
+}
+
+.gift-box .gift-lid {
+    width: 110%;
+    height: 35px;
+    background: #ff80ab;
+    position: absolute;
+    top: -5px;
+    left: -5%;
+    z-index: 2;
+    border-radius: 6px;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gift-box-container.opened .gift-lid {
+    transform: translateY(-120px) rotate(-30deg) scale(0.8);
+    opacity: 0;
+}
+
+.gift-box .gift-ribbon {
+    width: 28px;
+    height: 100%;
+    background: #ffd700;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.gift-box-container.opened .gift-body {
+    animation: bouncePop 0.5s forwards;
+}
+
+@keyframes bouncePop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+/* ─── Sparkles ─── */
+.sparkles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.gift-box-container.opened .sparkles {
+    animation: fadeInOut 1s forwards;
+}
+
+.sparkle {
+    position: absolute;
+    font-size: 20px;
+    animation: floatSparkle 1.5s infinite alternate;
+}
+
+.s1 {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0.1s;
+}
+
+.s2 {
+    top: 20%;
+    right: 10%;
+    animation-delay: 0.3s;
+}
+
+.s3 {
+    bottom: 15%;
+    left: 15%;
+    animation-delay: 0.5s;
+}
+
+.s4 {
+    bottom: 25%;
+    right: 20%;
+    animation-delay: 0.7s;
+}
+
+.s5 {
+    top: 5%;
+    left: 50%;
+    animation-delay: 0.9s;
+}
+
+.s6 {
+    bottom: 5%;
+    left: 45%;
+    animation-delay: 1.1s;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes floatSparkle {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-15px) scale(1.3);
+        opacity: 1;
+    }
+}
+
+.candle {
+    width: 7px;
+    height: 32px;
+    background: linear-gradient(#ffeb3b, #fbc02d);
+    border-radius: 4px;
+    position: relative;
+}
+
+.flame {
+    width: 12px;
+    height: 18px;
+    background: radial-gradient(#fff, #ffeb3b, #ff9800);
+    border-radius: 50% 50% 20% 20%;
+    position: absolute;
+    top: -20px;
+    left: -2px;
+    animation: flicker 0.2s infinite alternate ease-in-out;
+    filter: drop-shadow(0 0 10px #ffd36b);
+    z-index: 2;
+}
+
+.candle-glow {
+    position: absolute;
+    top: -25px;
+    left: -12px;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, rgba(255, 152, 0, 0.45) 0%, transparent 75%);
+    border-radius: 50%;
+    animation: glowPulse 1.5s infinite alternate ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes flicker {
+    0% {
+        transform: scale(1) rotate(-1deg);
+        opacity: 0.95;
+    }
+
+    50% {
+        transform: scale(1.1) rotate(1deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.9) rotate(-0.5deg);
+        opacity: 0.85;
+    }
+}
+
+@keyframes glowPulse {
+    0% {
+        transform: scale(0.85);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+}
+
+.candles-container.blown .flame,
+.candles-container.blown .candle-glow {
+    display: none;
+}
+
+/* ─── Wish Form (Step 4) ─── */
+.wish-input-section {
+    max-width: 650px;
+    width: 90%;
+    margin: 40px auto;
+}
+
+.wish-intro-text {
+    margin-bottom: 35px;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    font-style: italic;
+}
+
+.wish-form {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(255, 64, 129, 0.1);
+}
+
+.wish-textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 20px;
+    border: 2px solid rgba(255, 64, 129, 0.15);
+    border-radius: 15px;
+    font-family: 'Times New Roman', serif;
+    font-size: 1.2rem;
+    background: transparent;
+    resize: none;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.wish-textarea:focus {
+    border-color: var(--primary-romantic);
+    box-shadow: 0 0 15px rgba(255, 64, 129, 0.15);
+}
+
+/* ─── Thanks Card (Step 5) ─── */
+.thanks-msg-card {
+    padding: 50px 30px;
+    background: #fff;
+    border-top: 8px solid var(--primary-romantic);
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(255, 64, 129, 0.15);
+    margin: 20px auto;
+    max-width: 550px;
+    text-align: center;
+}
+
+.thanks-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.thanks-text-content {
+    margin: 25px 0;
+}
+
+.thanks-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+/* ─── Final Utils ─── */
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.mt-60 {
+    margin-top: 60px;
+}
+
+.action-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.final-nav-btngroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ─── Responsiveness ─── */
+@media (max-width: 768px) {
+
+    .gift-card,
+    .wish-card,
+    .thanks-msg-card {
+        padding: 35px 20px;
+        width: 100%;
+    }
+
+    .gift-box-container {
+        width: 110px;
+        height: 110px;
+    }
+
+    .cake-wrapper,
+    .cake-wrapper.small-cake {
+        width: 280px;
+        height: 280px;
+    }
+
+    .wish-intro-text {
+        font-size: 1rem;
+    }
+
+    .wish-form {
+        padding: 25px;
+    }
+
+    .thanks-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .gift-card,
+    .wish-card,
+    .thanks-msg-card {
+        padding: 25px 15px;
+        border-radius: 25px;
+    }
+
+    .cake-wrapper,
+    .cake-wrapper.small-cake {
+        width: 240px;
+        height: 240px;
+    }
+
+    .candle-overlay.c1 {
+        left: 35%;
+    }
+
+    .candle-overlay.c5 {
+        left: 65%;
+    }
+
+    .romantic-subline {
+        font-size: 1rem;
+    }
+}

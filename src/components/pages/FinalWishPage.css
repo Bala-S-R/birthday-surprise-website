@@ -1,0 +1,99 @@
+.final-wish-container {
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #fff5f8 0%, #f3e5f5 100%);
+    overflow-x: hidden;
+}
+
+.message-wrapper {
+    max-width: 800px;
+    width: 100%;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 20px 60px rgba(255, 64, 129, 0.1);
+}
+
+.animated-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.final-paragraph {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.title-para {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-romantic);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.final-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Override animate-pop for staggered entrance */
+.final-paragraph.animate-pop {
+    animation: slideInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.final-actions.animate-pop {
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .message-wrapper {
+        padding: 30px 20px;
+    }
+
+    .final-paragraph {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .title-para {
+        font-size: 1.5rem;
+    }
+
+    .final-actions {
+        flex-direction: column;
+    }
+}
