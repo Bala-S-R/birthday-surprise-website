@@ -43,79 +43,86 @@ And I will love you — today, tomorrow, and for a lifetime.❤️`;
         return () => clearInterval(timer);
     }, [targetDate]);
 
-    return () => clearInterval(interval);
-}, [fullText]);
+    useEffect(() => {
+        let i = 0;
+        const interval = setInterval(() => {
+            setTypedText(fullText.slice(0, i));
+            i++;
+            if (i > fullText.length) clearInterval(interval);
+        }, 30);
+        return () => clearInterval(interval);
+    }, [fullText]);
 
-useEffect(() => {
-    const heartContainer = document.querySelector('.hearts-bg-container');
-    if (!heartContainer) return;
+    useEffect(() => {
+        const heartContainer = document.querySelector('.hearts-bg-container');
+        if (!heartContainer) return;
 
-    const createHeart = () => {
-        const heart = document.createElement('div');
-        heart.className = 'floating-heart';
-        heart.innerHTML = '❤️';
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = Math.random() * 5 + 5 + 's';
-        heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-        heartContainer.appendChild(heart);
+        const createHeart = () => {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 5 + 5 + 's';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            heartContainer.appendChild(heart);
 
-        setTimeout(() => {
-            heart.remove();
-        }, 10000);
-    };
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        };
 
-    const interval = setInterval(createHeart, 800);
-    return () => clearInterval(interval);
-}, []);
+        const interval = setInterval(createHeart, 800);
+        return () => clearInterval(interval);
+    }, []);
 
-return (
-    <div className="page-content animate-pop">
-        <div className="hearts-bg-container"></div>
+    return (
+        <div className="page-content animate-pop">
+            <div className="hearts-bg-container"></div>
 
 
-        <div className="animate-3d-float">
-            <h1 className="romantic-title glowing-text">Wish You Many More Happy Birthday Vaishu ❤️</h1>
+            <div className="animate-3d-float">
+                <h1 className="romantic-title glowing-text">Wish You Many More Happy Birthday Vaishu ❤️</h1>
 
-            <div className="hero-section">
-                <div className="glass-card-romantic hero-image-container glowing-border">
-                    <img
-                        src="/vaishu.jpg"
-                        alt="Vaishu"
-                        className="romantic-image"
-                    />
+                <div className="hero-section">
+                    <div className="glass-card-romantic hero-image-container glowing-border">
+                        <img
+                            src="/vaishu.jpg"
+                            alt="Vaishu"
+                            className="romantic-image"
+                        />
+                    </div>
+
+                    <div className="glass-card-romantic intro-card">
+                        <p className="typing-text">{typedText}</p>
+                        <div className="decorative-icon">✨</div>
+                    </div>
                 </div>
+            </div>
 
-                <div className="glass-card-romantic intro-card">
-                    <p className="typing-text">{typedText}</p>
-                    <div className="decorative-icon">✨</div>
+            <div className="countdown-grid">
+                <div className="glass-card-romantic timer-box">
+                    <span className="timer-val">{timeLeft.days}</span>
+                    <span className="timer-label">Days</span>
+                </div>
+                <div className="glass-card-romantic timer-box">
+                    <span className="timer-val">{String(timeLeft.hours).padStart(2, '0')}</span>
+                    <span className="timer-label">Hours</span>
+                </div>
+                <div className="glass-card-romantic timer-box">
+                    <span className="timer-val">{String(timeLeft.minutes).padStart(2, '0')}</span>
+                    <span className="timer-label">Mins</span>
+                </div>
+                <div className="glass-card-romantic timer-box">
+                    <span className="timer-val running-seconds">{String(timeLeft.seconds).padStart(2, '0')}</span>
+                    <span className="timer-label">Secs</span>
                 </div>
             </div>
-        </div>
 
-        <div className="countdown-grid">
-            <div className="glass-card-romantic timer-box">
-                <span className="timer-val">{timeLeft.days}</span>
-                <span className="timer-label">Days</span>
-            </div>
-            <div className="glass-card-romantic timer-box">
-                <span className="timer-val">{String(timeLeft.hours).padStart(2, '0')}</span>
-                <span className="timer-label">Hours</span>
-            </div>
-            <div className="glass-card-romantic timer-box">
-                <span className="timer-val">{String(timeLeft.minutes).padStart(2, '0')}</span>
-                <span className="timer-label">Mins</span>
-            </div>
-            <div className="glass-card-romantic timer-box">
-                <span className="timer-val running-seconds">{String(timeLeft.seconds).padStart(2, '0')}</span>
-                <span className="timer-label">Secs</span>
-            </div>
+            <button className="action-btn next-step-btn" onClick={() => navigate('/wish')}>
+                Open Our Journey ✨
+            </button>
         </div>
-
-        <button className="action-btn next-step-btn" onClick={() => navigate('/wish')}>
-            Open Our Journey ✨
-        </button>
-    </div>
-);
+    );
 };
 
 export default HomePage;
