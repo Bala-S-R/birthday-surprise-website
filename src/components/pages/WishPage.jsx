@@ -5,10 +5,11 @@ import './WishPage.css';
 const WishPage = () => {
     const navigate = useNavigate();
     const timelineDates = [
-        "20 Sep 2025", "21 Sep 2025", "20 Sep 2025", "1 Oct 2025",
+        "15 Sep 2025", "20 Sep 2025", "21 Sep 2025", "1 Oct 2025",
         "3 Oct 2025", "4 Oct 2025", "25 Oct 2025", "8 Nov 2025",
         "9 Nov 2025", "17 Jan 2026", "23 Jan 2026", "24 Jan 2026",
-        "14 Feb 2026", "15 Feb 2026"
+        "7 Feb 2026", "14 Feb 2026", "15 Feb 2026", "14 Mar 2026",
+        "21 Mar 2026", "22 Mar 2026", "23 Mar 2026"
     ];
 
     // Sparkles background effect
@@ -45,6 +46,11 @@ const WishPage = () => {
                 <div className="journey-heading animate-pop" style={{ animationDelay: '0.3s' }}>
                     <h2 className="journey-title">Our Journey</h2>
                     <p className="journey-years">2023 – 2024 – 2025</p>
+                    <div className="journey-subtitle" style={{ fontSize: '1.2rem', color: 'var(--text-dim)', fontStyle: 'italic', marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <p>2023 – Two strangers, one beautiful beginning.</p>
+                        <p>2024 – Even through distance and lost calls, our bond remained.</p>
+                        <p>2025 – The day two hearts finally met in the same place.</p>
+                    </div>
                 </div>
             </header>
 
